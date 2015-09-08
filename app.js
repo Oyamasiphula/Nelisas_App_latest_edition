@@ -1,11 +1,23 @@
 var express = require('express'),
  	exphbs = require('express-handlebars'),
+ 	// mysql = require("mysql"),
+ 	// connection = require("express-myconnection"),
  	fileName = 'data/NelisaSalesHistory.csv',
  	csvReader = require('./routes/sales_file_utilities'),
  	productsCatsUtil = require('./routes/productCats'),
  	products = require('./routes/Nelisa_Spaza_Sales'),
  	prod_categories = require('./routes/products_Categories'),
  	mostPopularCategories = require('./routes/mostPopularCategory');
+
+//  	app.use(
+//     connection(mysql,{
+//         host: 'localhost',
+//         user: 'Nelisa',
+//         password : 'password',
+//         port : 2400,
+//         database:'Nels_db'
+//     },'request')
+// );
 
 var app = express();
 
