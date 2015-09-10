@@ -185,23 +185,6 @@ td, th {
   text-align: center;
 }
 
-footer{
-border: dashed;
-}
-
-/*html {
-  background: #00b4da;
-  color: white;
-}*/
-
-/*footer .main-gradient {
-  height: 70px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-}*/
-
 .main-gradient {
   background: -moz-linear-gradient(top, #00b4da 0%, #363636 100%); /* FF3.6+ */
   background: linear-gradient(to bottom, #00b4da 0%,#363636 100%); /* W3C */
@@ -219,9 +202,10 @@ footer > #wrap {height: auto; min-height: 100%;}
 
 footer { 
   position: relative;
-  margin-top: -150px; /* negative value of footer height */
+  margin-top: -150px;  /*negative value of footer height*/ 
   height: 150px;
- background: #363636; 
+  background: #363636;
+  border: dashed; 
 } 
 
 /* CLEAR FIX*/
@@ -230,10 +214,12 @@ footer {
   height: 0;
   clear: both;
   visibility: hidden;}*/
+
 .clearfix {display: inline-block;}
 /* Hides from IE-mac \*/
 * html .clearfix { height: 1%;}
-.clearfix {display: block;}
+.clearfix {display: block;
+}
 /* End hide from IE-mac */
 
 /* end sticky footer stuff from css-tricks.com */
