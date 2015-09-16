@@ -34,7 +34,7 @@ create table Purchases_td (
     Suppliers_id int,
     FOREIGN KEY (Product_id) REFERENCES Products_td(id),
     product_price char(15),
-    FOREIGN KEY (Suppliers_id) REFERENCES Suppliers_td(id),
+    FOREIGN KEY (Supplier_id) REFERENCES Suppliers_td(id),
     primary key(id)
 );
 
