@@ -1,7 +1,9 @@
 var express = require('express'),
  	exphbs = require('express-handlebars'),
- 	// mysql = require("mysql"),
- 	// connection = require("express-myconnection"),
+ 	mysql = require('mysql'),
+ 	myConnection = require('express-myconnection'),
+ 	bodyParser = require('body-parser'),
+ 	session = require('express-session'),
  	fileName = 'data/NelisaSalesHistory.csv',
  	csvReader = require('./routes/sales_file_utilities'),
  	productsCatsUtil = require('./routes/productCats'),
@@ -9,22 +11,38 @@ var express = require('express'),
  	prod_categories = require('./routes/products_Categories'),
  	mostPopularCategories = require('./routes/mostPopularCategory');
 
-//  	app.use(
-//     connection(mysql,{
-//         host: 'localhost',
-//         user: 'Nelisa',
-//         password : 'password',
-//         port : 2400,
-//         database:'Nels_db'
-//     },'request')
-// );
+var dbOptions = {
+		host: 'localhost',
+		user: 'uber',
+		password: 'Uber_Uber123',
+		port: 3306,
+		database: 'uber_data'
+	};
 
 var app = express();
+
+//setup middleware
+app.use(myConnection(mysql, dbOptions, 'single'));
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
+
+app.use(session({secret: "Haha haha", saveUninitialized : false, resave: true, cookie : {maxAge : 5*60000}}));
+// app.set("x-powered-by", false);
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
+
 app.use(express.static(__dirname + '/public' ));
+
+
+app.use(myConnection(mysql, dbOptions, 'single'));
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
 
 app.get('/', function(req, res){
 	res.render('home')
