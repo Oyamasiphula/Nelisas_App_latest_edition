@@ -1,0 +1,29 @@
+<div class="row"> 
+<div class="col-xs-7 col-md-7 ">
+	<li class="input">
+		<div class="ui">
+	<p>A replacement for the "prompt" function</p>
+			<button>Try me!</button>
+		</div>
+		<pre><span class="attr">swal</span>({
+&nbsp;&nbsp;title: <span class="str">"An input!"</span>,
+&nbsp;&nbsp;text: <span class="str">"Write something interesting:"</span>,
+&nbsp;&nbsp;type: <span class="str">"input"</span>,
+&nbsp;&nbsp;showCancelButton: <span class="val">true</span>,
+&nbsp;&nbsp;closeOnConfirm: <span class="val">false</span>,
+&nbsp;&nbsp;animation: <span class="str">"slide-from-top"</span>,
+&nbsp;&nbsp;inputPlaceholder: <span class="str">"Write something"</span>
+},
+<span class="func"><i>function</i></span>(<span class="arg">inputValue</span>){
+&nbsp;&nbsp;<span class="tag">if</span> (inputValue <span class="tag">===</span> <span class="val">false</span>) <span class="tag">return</span> <span class="val">false</span>;
+&nbsp;&nbsp;
+&nbsp;&nbsp;<span class="tag">if</span> (inputValue <span class="tag">===</span> <span class="str">""</span>) {
+&nbsp;&nbsp;&nbsp;&nbsp;swal<span class="tag">.</span><span class="attr">showInputError</span>(<span class="str">"You need to write something!"</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">return</span> <span class="val">false</span>
+&nbsp;&nbsp;}
+&nbsp;&nbsp;
+&nbsp;&nbsp;<span class="attr">swal</span>(<span class="str">"Nice!"</span>, <span class="str">"You wrote: "</span> + inputValue, <span class="str">"success"</span>);
+});</pre>
+	</li>
+	</div>
+</div>
